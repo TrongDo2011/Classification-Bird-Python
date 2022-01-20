@@ -129,8 +129,8 @@ def accuracy(test,model,testlabels0):
     print(accuracy)
 
 def saveModel(model):
-    model.save("Mode_Tree_Dense_300.h5")
-    print("Mode_Tree_Dense_300.h5")
+    model.save("Mode_Bird_Dense_300.h5")
+    print("Mode_Bird_Dense_300.h5")
 
 if __name__ == '__main__':
     directory = 'DataImage'
