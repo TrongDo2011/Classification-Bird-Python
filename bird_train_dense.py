@@ -39,7 +39,7 @@ def split_data():
             image=load_img(os.path.join(path, im), grayscale=False, color_mode='rgb', target_size=(180, 180))
             image=img_to_array(image)
             image=image/255.0
-            if t<=31:
+            if t<=35:
                 dataset+=[[image,count]]
             else:
                 testset+=[[image,count]]
@@ -72,7 +72,7 @@ def Train(trainx,trainy,testx,testy):
     outputs3 = tf.keras.layers.Dense(200, activation='softmax')(x3)
     model = tf.keras.Model(inputs=inputs3, outputs=outputs3)
     model.compile(optimizer= Adam(learning_rate=0.0001), loss='categorical_crossentropy', metrics=['accuracy'])
-    his = model.fit(datagen.flow(trainx, trainy, batch_size=128), validation_data=(testx, testy), epochs= 200, steps_per_epoch=trainx.shape[0]/128)
+    his = model.fit(datagen.flow(trainx, trainy, batch_size=128), validation_data=(testx, testy), epochs= 300, steps_per_epoch=trainx.shape[0]/128)
     return his, model
 def printclassification_report(testx, testy, model):
     y_pred= model.predict(testx)
@@ -129,8 +129,8 @@ def accuracy(test,model,testlabels0):
     print(accuracy)
 
 def saveModel(model):
-    model.save("Mode_Tree_Dense_200_ver1.h5")
-    print("Mode_Tree_Dense_200_ver1.h5")
+    model.save("Mode_Tree_Dense_300.h5")
+    print("Mode_Tree_Dense_300.h5")
 
 if __name__ == '__main__':
     directory = 'DataImage'
