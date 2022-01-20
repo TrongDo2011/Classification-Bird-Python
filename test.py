@@ -27,7 +27,7 @@ print(mapping)
 def mapper(value):
     return reverse_mapping[value]
 
-model = load_model('Mode_Bird_Dense_test_ver1.h5')
+model = load_model('Mode_Bird_Dense_300.h5')
 
 image=load_img("test/Crested_Auklet_test3.jpg",target_size=(180,180))
 image=img_to_array(image)
